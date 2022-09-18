@@ -1,0 +1,650 @@
+---
+title: "Auswertung InDiKo Prä-Post + Feedback"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r Pakete laden, echo = FALSE, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(psych)
+library(gluedown)
+library(patchwork)
+library(stringr)
+library(stringi)
+library(grid)
+library(haven)
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+```
+
+```{r Daten einlesen, echo = FALSE, warning=FALSE, eval = TRUE}
+
+ds <- readRDS(file = "Matched_t0t1_SoSe2022_Marc.rds")
+
+```
+
+```{r Vars umbenennen, echo = FALSE, warning = FALSE, eval = FALSE}
+
+# Wird aktuell nicht ausgeführt, evtl. schauen, was davon relevant wird, weil der aktuelle DS komplexer ist.
+
+ds$Survey <- factor(ds$Survey, levels = c("Medienbildung_Forschungsmethoden_EF1_SoSe21_pre", "Medienbildung_EF1_SoSe21_mid"))
+levels(ds$Survey)[levels(ds$Survey) == "Medienbildung_Forschungsmethoden_EF1_SoSe21_pre"] <- "pre"
+levels(ds$Survey)[levels(ds$Survey) == "Medienbildung_EF1_SoSe21_mid"] <- "mid"
+
+```
+
+```{r Zeitstempel erstellen}
+# Feedback erstellen ab 8 Personen Prä-Test und 5 Personen (direktes Feedback) Post-Test
+
+ds <- ds %>% mutate(t= as.numeric(grepl("post",Survey)))
+
+empty <- c("","-","--",".","/","S.o.")
+ds$FeB_positiv[ds$FeB_positiv %in% empty ] <- NA
+ds$FeB_negativ[ds$FeB_negativ %in% empty ] <- NA
+ds$FeB_andereInhalte[ds$FeB_andereInhalte %in% empty ] <- NA
+```
+
+```{r EF1, eval = FALSE}
+TP_Text <- "EF1 Veranstaltung Medienbildung im digitalen Zeitalter, WS 2021/2022"
+
+#post_ef1 <- ds %>% filter(Group == 1 | Group ==3 | MVA_IDK_EF1 == TRUE) %>% select(PersonID.m) %>% na.omit() %>% unique()
+ds |> filter(!is.na(matched)) |> filter(MVA_IDK_EF1_g %in% c("indicated at t1","other indicator") ) -> dsw
+dsw |> filter(complete.cases(TK4,PS4,TPK4)) -> dsw
+#dsw <- ds %>% filter( PersonID.m %in% post_ef1$PersonID.m)
+
+ds_feedback_post <- ds %>% filter(t==1)
+ds_feedback_pre <- ds %>% filter(t==0)
+```
+
+```{r TP Wirtschaft, eval = FALSE}
+TP_Text <- "TP Wirtschaft, Veranstaltung BO1, WS 2021/2022"
+
+#post_wirtsch <- ds %>% filter(REF == "Wirts" | MVA_IDK_Wirt_BO1 == TRUE) %>% select(PersonID.m) %>% na.omit() %>% unique() 
+# es gibt eine Person, die im Posttest teilgenommen hat, und der Prätest woanders herkommt
+# Über ID dazusuchen
+
+
+#dsw <- ds %>% filter(REF == "Wirts" | MVA_IDK_Wirt_BO1 == TRUE | PersonID.m %in% post_wirtsch$PersonID.m)
+
+
+ds |> filter(!is.na(matched)) |> filter(MVA_IDK_TP7_g %in% c("indicated at t1","other indicator") ) -> dsw
+dsw |> filter(complete.cases(TK4,PS4,TPK4)) -> dsw
+ds_feedback_post <- ds %>% filter(t==1 & REF == "Wirts")
+ds_feedback_pre <- ds %>% filter(t==0 & REF == "Wirts")
+```
+
+```{r TP Englisch, eval = TRUE}
+TP_Text <- "TP Englisch, Grammar teaching, WS 2021/2022"
+
+#post_engl <- ds %>% filter(REF == "Engl" | MVA_IDK_Engl_Grammar == TRUE) %>% select(PersonID.m) %>% na.omit() %>% unique() 
+
+#dsw <- ds %>% filter(REF == "Engl" | MVA_IDK_Engl_Grammar == TRUE | PersonID.m %in% post_engl$PersonID.m)
+
+
+ds |> filter(!is.na(matched)) |> filter(MVA_IDK_TP3_g %in% c("indicated at t1","other indicator") ) -> dsw
+dsw |> filter(complete.cases(TK4,PS4,TPK4)) -> dsw
+ds_feedback_post <- ds %>% filter(t==1 & REF == "Engl")
+ds_feedback_pre <- ds %>% filter(t==0 & REF == "Engl")
+```
+
+```{r TP Geschichte, eval = FALSE}
+TP_Text <- "TP Geschichte, Didaktik-Seminar, WS 2021/2022 "
+
+#post_gesch <- ds %>% filter(REF == "Gesch" | MVA_IDK_Gesch_Didaktik == TRUE ) %>% select(PersonID.m) %>% na.omit() %>% unique() 
+
+#dsw <- ds %>% filter(REF == "Gesch" | MVA_IDK_Gesch_Didaktik == TRUE| PersonID.m %in% post_gesch$PersonID.m)
+
+ds |> filter(!is.na(matched)) |> filter(MVA_IDK_TP4_g %in% c("indicated at t1","other indicator") ) -> dsw
+dsw |> filter(complete.cases(TK4,PS4,TPK4)) -> dsw
+ds_feedback_pre <- ds %>% filter(t==0 & REF == "Gesch")
+ds_feedback_post <- ds %>% filter(t==1 & REF == "Gesch")
+```
+
+```{r TP Deutsch, eval = FALSE}
+TP_Text <- "TP Deutsch, Webquests/Lernpfade, WS 2021/2022 "
+
+#post_dt <- ds %>% filter(REF == "Dt" | MVA_IDK_Dt == TRUE ) %>% select(PersonID.m) %>% na.omit() %>% unique() 
+
+#dsw <- ds %>% filter(REF == "Dt" | MVA_IDK_Dt == TRUE| PersonID.m %in% post_dt$PersonID.m)
+
+ds |> filter(!is.na(matched)) |> filter(MVA_IDK_TP2_g %in% c("indicated at t1","other indicator") ) -> dsw
+dsw |> filter(complete.cases(TK4,PS4,TPK4,SEBase8,SEAdv7)) -> dsw
+ds_feedback_pre <- ds %>% filter(t==0 & REF == "Dt")
+ds_feedback_post <- ds %>% filter(t==1 & REF == "Dt")
+```
+
+```{r TP Bio, eval = FALSE}
+# zu wenige TN
+TP_Text <- "TP Biologie, Webquests/Lernpfade, WS 2021/2022 "
+
+ds |> filter(!is.na(matched)) |> filter(MVA_IDK_TP1_g %in% c("indicated at t1","other indicator") ) -> dsw
+dsw |> filter(complete.cases(TK4,PS4,TPK4)) -> dsw
+ds_feedback_pre <- ds %>% filter(t==0 & REF == "Bio")
+ds_feedback_post <- ds %>% filter(t==1 & REF == "Bio")
+```
+
+```{r TP Mathe, eval = FALSE}
+# zu wenige TN
+
+TP_Text <- "TP Mathematik, Webquests/Lernpfade, WS 2021/2022 "
+ds |> filter(!is.na(matched)) |> filter(MVA_IDK_TP5_g %in% c("indicated at t1","other indicator") ) -> dsw
+
+dsw |> filter(complete.cases(TK4,PS4,TPK4)) -> dsw
+ds_feedback_pre <- ds %>% filter(t==0 & REF == "Mathe")
+ds_feedback_post <- ds %>% filter(t==1 & REF == "Mathe")
+```
+
+```{r TP Physik, eval = FALSE}
+
+TP_Text <- "TP Physik, Webquests/Lernpfade, WS 2021/2022 "
+# zu wenige TN
+ds |> filter(!is.na(matched)) |> filter(MVA_IDK_TP6_g %in% c("indicated at t1","other indicator") ) -> dsw
+dsw |> filter(complete.cases(TK4,PS4,TPK4)) -> dsw
+ds_feedback_pre <- ds %>% filter(t==0 & REF == "Phy")
+ds_feedback_post <- ds %>% filter(t==1 & REF == "Phy")
+```
+
+
+
+
+
+
+`r TP_Text`
+
+```{r Funktion für offene Antworten und Vorbereitung der Inhalte}
+Offene_Antworten <- function(ds_value) {
+  Antworten_split <- str_split(ds_value,"\n", simplify = TRUE)
+  Antworten_split <- stringr::str_remove(Antworten_split, "-")
+  stringi::stri_remove_empty_na(Antworten_split) %>% md_bullet()
+}
+
+#FB_text <- dsw$FB01_01[!is.na(dsw$FB01_01)]
+```
+
+## Stichprobe am Anfang des Semesters
+
+```{r Stichprobe, message = FALSE}
+  
+# ds_feedback_pre %>% mutate(Fachsemester = FachSem) %>% select(Alter,Fachsemester)  %>% 
+#   describe() %>% 
+#   select(n,mean,sd,min,max) %>% 
+#   kable(col.names = c("N","M","SD","Minimum","Maximum"), digits = 1,
+#         caption = "Demographische Angaben")
+
+ds_feedback_pre %>% mutate(Alter.spoken = recode(Alter.c, 
+                                    "(20,25]" = "20 bis 25",
+                                    "(18,20]" = "18 bis 20",
+                                    "(25,30]" = "25 bis 30",
+                                    "(30,70]" = "30 bis 70"
+                                    )) -> ds_feedback_pre
+
+kable(table(ds_feedback_pre$Alter.spoken), col.names = c("Angabe","Anzahl"), caption ="Alter")
+
+kable(table(ds_feedback_pre$Geschl), col.names = c("Angabe","Anzahl"), caption="Geschlecht")
+
+kable(table(ds_feedback_pre$StudGang)[1:6], col.names = c("Angabe","Anzahl"), caption="Studiengang")
+
+
+
+MINT <- data.frame(Fach =c("Mathe, Informatik, Physik, Chemie, Technik", 
+                           "Biologie, AuG",
+                           "kein MINT"),
+                   Anzahl = c(sum(ds_feedback_pre$MINT1, na.rm = TRUE),
+                            sum(ds_feedback_pre$MINT2, na.rm = TRUE),
+                            sum(ds_feedback_pre$MINT0, na.rm = TRUE)  )      )
+
+kable(MINT, caption = "MINT (Mehrfachnennung möglich)")
+
+```
+
+
+
+\newpage
+
+## Wahrgenommene Schwerpunkte der Veranstaltung
+
+Es konnten mehrere Schwerpunkte angegeben werden. 
+
+```{r}
+
+Text <- c("Überblick Theorie", "Überblick Forschung", "Überblick Tools",
+                    "Beispielhafter Medieneisatz in LVA", "Medieneinsatz in LVA geplant", "Medieneinsatz durch Studierende in LVA",
+                    "Einführung spezifisches Tool", "Selbst einarbeiten","Selbst Produkte erstellt", "Selbst Produkte geteilt",
+                    "Reflektion Rahmenbed. (Rechtlich...)", "Reflektion Medieneinsatz in LVA", "Selbst zu Medien geforscht",
+            "Sonstiges") 
+
+ds_feedback_post %>% select(FO_Gen_Theorie:FO_Sons_Medien) %>% 
+  filter(ds_feedback_post$Survey == "AlleGruppen_SoSe22_postMB_FM"# & ds_feedback_post$MVA_IDK_EF1 == TRUE
+         ) %>%
+  summarise(across(everything())) %>% na.omit() %>% t() -> Fokus
+#hier habe ich änderungen vorgenommen, weil alles zu na wurde und unten noch eine line eingefügt + filter-argument
+#HIER HABE ICH ETWAS AUSKOMMENTIERT, MIT SONJA CHECKEN OB OK
+
+Fokus <- data.frame(Fokus,Text) %>% mutate(Text = as_factor(Text))
+
+Fokus %>% mutate(sum = rowSums(across(where(is.logical)))) -> Fokus
+
+n_ges = nrow(ds_feedback_post)
+
+ggplot(Fokus,aes(Text,sum)) + 
+  geom_bar(stat="Identity") +
+   coord_flip(ylim = c(0,n_ges)) + 
+  scale_x_discrete(limits=rev)+
+  scale_y_continuous(breaks=seq(0, n_ges, 1))+
+  #scale_x_reverse(labels = Fokus$Text)+
+   xlab("")+
+   ylab(paste0("Folgende Aspekte waren Thema in der Veranstaltung \n (Mehrfachantwort, N = ",n_ges, ")"))+
+   theme_bw(base_size = 9)+
+  theme(panel.grid.minor = element_blank())
+
+
+```
+
+
+```{r, results='asis', eval = FALSE}
+# ### ggf. Freitextantworten bei Sonstiges
+
+#Offene_Antworten(ds_feedback_post$FO_Sons_offen)
+
+#NACHFRAGEN OB DAS HIER RAUSGENOMMEN WURDE; WAR NICHT IN DS DABEI
+
+```
+
+
+\newpage
+
+
+```{r Feedback_Umfrage, results='asis'}
+# ## Feedback
+
+#Offene_Antworten(FB_text) #Problem zu erkennen - Wenn Teilnehmende "Enter" drücken, wird ein neuer Kommentar angefangen
+```
+
+```{r, results='asis', eval=TRUE}
+# ### Positiv fanden die Studierenden (Freitext-Antworten von `r sum(!is.na(ds_feedback_post$FeB_positiv))` Personen aus insgesamt `r dim(ds_feedback_post)[1]` Personen)
+
+#Offene_Antworten(ds_feedback_post$FeB_positiv)
+```
+
+```{r, results='asis', eval=TRUE}
+# ### Verbesserungsvorschläge (Freitext-Antworten von `r sum(!is.na(ds_feedback_post$FeB_negativ))` Personen aus insgesamt `r dim(ds_feedback_post)[1]` Personen)
+
+#Offene_Antworten(ds_feedback_post$FeB_negativ)
+```
+
+```{r, results='asis', eval=TRUE}
+# ### Wünsche nach anderen Inhalten/Schwerpunkten (Freitext-Antworten von `r sum(!is.na(ds_feedback_post$FeB_andereInhalte))` Personen aus insgesamt `r dim(ds_feedback_post)[1]` Personen)
+
+#Offene_Antworten(ds_feedback_post$FeB_andereInhalte)
+```
+\newpage
+
+```{r Funktion Pre Post Plot}
+
+ppp <- function(vari, t, ID, titel, s_min, s_max){
+
+ds_p <- data.frame(ID,t,vari)
+
+# Deskriptive Statistiken berechnen
+desc <- ds_p %>% group_by(t) %>% summarise(., M = mean(vari, na.rm = TRUE), SD = sd(vari, na.rm = TRUE), N = n()) %>% round(.,2)
+
+# Lineplot erstellen
+ggplot(data = NULL, aes(x = t, y = M))+
+   geom_line(data = desc, color = "red") +
+   geom_point(data = desc, color = "red") +
+   ylim(s_min,s_max)+
+   scale_x_continuous(limits=c(0, 1), breaks = 0:1, labels = c("Prä","Post")) +
+   xlab("Zeitpunkt") + ylab("Mittelwerte") +
+   theme_minimal()+
+     geom_text(aes(x = 0.1, y = 1.5),
+              label = paste0("M = ", desc[1,2], "\n", "SD = ",desc[1,3]),
+              size = 3,
+              nudge_x = 0.00, 
+              colour = "black")+
+   geom_text(aes(x = 0.9, y = 1.5),
+              label = paste0("M = ", desc[2,2], "\n", "SD = ",desc[2,3]),
+              size = 3,
+              nudge_x = 0.00, 
+              colour = "black")+
+   geom_text(aes(x = 0.5, y = 1.5),
+              label = paste0("n = ", desc[1,4], "\n","(gematched)"),
+              size = 3,
+              nudge_x = 0.00, 
+              colour = "black")+
+   ggtitle(titel) +
+
+#zweiter Teil
+  geom_line(data = ds_p, aes(x = t, y = vari, group = ID), color = "blue")+
+  geom_point(data = ds_p, aes(x = t, y = vari, group = ID), color = "blue")
+
+}
+
+#Änderung nötig: geom_texts müssen weiter nach unten rücken.
+
+```
+
+```{r Legenden, echo = FALSE, include=F}
+legende1_5 <- grid.text(
+  "  5 = stimme völlig zu \n
+  4 = stimme eher zu \n
+  3 = weder noch \n
+  2 = stimme eher nicht zu \n
+  1 = stimme überhaupt nicht zu", x = 0.2, y = 0.5, gp = gpar(fontsize = 8.5), just = "left")
+
+legende1_4 <- grid.text(
+  "  4 = kann ich anderen beibringen \n
+  3 = kann ich \n
+  2 = könnte ich herausfinden \n
+  1 = kann ich nicht", x = 0.2, y = 0.5, gp = gpar(fontsize = 8.5), just = "left")
+```
+
+```{r Einzelgrafik_Funktion}
+
+single_graph <- function(dv, t){
+  
+# deparse the supplied variable then extract everything after the $-separator
+dv_string <- deparse(substitute(dv))
+dv_string_end <- strsplit(dv_string, "[$]")[[1]][2]
+
+# if the end of the extracted string starts with "SE", prepare function for
+# 4 answer categories, else prepare function for 5 answer categories
+  if (startsWith(dv_string_end, "SE")) {
+    
+   labels_levels <- c("kann ich nicht", " könnte ich herausfinden",
+                  "kann ich", "kann ich anderen beibringen")
+    one_X_list <- c(1:4)
+  }else{
+    labels_levels <- c("stimme ... überhaupt nicht", " eher nicht",
+                  "weder noch", " eher",
+                  " völlig zu")
+    one_X_list <- c(1:5)
+  }
+
+# prepare strings according to the t parameter  
+  if (t == "pre") {
+    deutsch_prepost <- "Prä"
+  }else{
+    deutsch_prepost <- "Post"
+  }
+
+# prepares descriptives & the data frame for plotting
+dv_grafik <- dv
+   
+Mittelwert <- mean(dv_grafik[dv_grafik>0], na.rm = TRUE)
+Mittelwert_gerundet <- paste(" M =", format(round(Mittelwert, 2), nsmall = 2))
+
+Standardabw <- sd(dv_grafik[dv_grafik>0], na.rm = TRUE) 
+SD_gerundet <- paste(" SD =", format(round(Standardabw, 2), nsmall = 2))
+
+Stprgr <- sum(!is.na(dv_grafik[dv_grafik>0]))
+Stprgr_gerundet <- paste(" N =", format(Stprgr))
+
+annotation_stats_SD_und_N_no_linebreak <- paste("SD =",  
+format(round(Standardabw, 2), nsmall = 2), "                " , "N =",  
+Stprgr)
+
+dv_grafik <- factor(dv_grafik, levels = one_X_list, labels =
+                labels_levels)
+
+Haeufigkeit <- 0.4*prop.table(table(dv_grafik))
+
+h.daten <- data.frame(Ort=one_X_list, Konstante = t, gross = Haeufigkeit)
+
+# plotting
+ggplot(data = h.daten, aes(Ort, Konstante,text = annotation_stats_SD_und_N_no_linebreak))+
+   geom_linerange(data = h.daten, aes(x = Ort, ymin = 1-gross.Freq, ymax = 1+gross.Freq), colour='#0078A5',
+              size = 5) +
+   scale_x_discrete(name = NULL, limits=one_X_list, labels = one_X_list) +
+   scale_y_discrete(name = deutsch_prepost) +
+  
+   geom_linerange(data = h.daten, aes(x = Mittelwert, ymin = 1-0.3, ymax = 1+0.3), colour= "red", size = 1) +
+             theme_minimal()+
+             theme(legend.position="none", aspect.ratio = 1.5)+
+             guides(size= "none", labels = "none")+
+             theme(axis.ticks = element_blank(),
+                   panel.grid.major.x = element_blank())+
+
+   geom_text(aes(x = Mittelwert, y = Konstante),
+             label = SD_gerundet,
+             nudge_y = 0.385,
+             nudge_x = -0.135,
+             size = 2.5,
+             colour = "black")+
+
+   geom_text(aes(x = 0.5, y = 1),
+             label = Stprgr_gerundet,
+             size = 2.5,
+             colour = "black")+
+
+   geom_text(aes(x = Mittelwert, y = Konstante),
+             label = Mittelwert_gerundet,
+             nudge_y = 0.40,
+             nudge_x = 0.02,
+             size = 2.5,
+             fontface = "plain",
+             colour = "red") +
+  coord_flip()
+}
+```
+
+
+```{r Patching single graphs, include=F}
+
+patching_single_graphs <- function(Item){
+
+# initiate empty lists   
+  data_graph_pre_t0 <- vector(mode = "list", length = 500)
+  data_graph_pre_t1 <- vector(mode = "list", length = 500)
+  
+# deparse the supplied variable then extract everything after the $-separator
+  Item_string <- deparse(substitute(Item))
+  Item_string_end <- strsplit(Item_string, "[$]")[[1]][2]
+
+# if the end of the extracted string starts with "SE", prepare function for
+# 4 answer categories, else prepare function for 5 answer categories
+  if (startsWith(Item_string_end, "SE")) {
+    data_graph_pre_t0$SE <- Item[dsw$t == 0]
+    data_graph_pre_t1$SE <- Item[dsw$t == 1]
+    grafik1 <- single_graph(data_graph_pre_t0$SE, "pre")
+    grafik2 <- single_graph(data_graph_pre_t1$SE, "post")
+    
+  }else{
+    data_graph_pre_t0$others <- Item[dsw$t == 0]
+    data_graph_pre_t1$others <- Item[dsw$t == 1]
+    grafik1 <- single_graph(data_graph_pre_t0$others, "pre")
+    grafik2 <- single_graph(data_graph_pre_t1$others, "post")
+  }
+
+# use the patchwork() package to edit plots & then combine them    
+  patches = grafik1 + grafik2 + plot_layout(widths = c(1,1)) + plot_annotation(
+  title = attributes(Item)$comment, theme = theme(plot.title = element_text(size = 8)))
+
+  patches[[2]] = patches[[2]] + theme(axis.text.y = element_blank(),
+                                    axis.ticks.y = element_blank(),
+                                    axis.title.y = element_blank(),
+                                    axis.text.x = element_blank())
+
+  patches[[1]] = patches[[1]] + theme(axis.text.x = element_blank())
+
+  patches
+  
+}
+```
+
+## Interpretation der folgenden Grafiken anhand zweier Beispiele:
+
+### Skalenwerte
+![]("skala.png")
+
+### Einzelitems
+![]("pre_post.png")
+
+
+## Skalenwerte
+
+```{r Skalenplots, fig.width = 8, fig.height = 5, fig.align='center'}
+ppp(dsw$TK_mean, dsw$t, dsw$PersonID.m, "Technological Knowledge", 1,5) + legende1_5
+```
+
+## Einzelitems
+```{r TK1, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$TK1)
+```
+\newpage
+```{r TK2, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$TK2)
+patching_single_graphs(dsw$TK3)
+patching_single_graphs(dsw$TK4)
+```
+\newpage
+## Skalenwerte
+```{r PS1, fig.width = 8, fig.height = 5, fig.align='center'}
+ppp(dsw$PS_mean, dsw$t, dsw$PersonID.m, "Technological Problem Solving", 1,5) + legende1_5
+
+```
+## Einzelitems
+```{r PS2, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$PS1)
+```
+
+```{r PS3, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$PS2)
+patching_single_graphs(dsw$PS3)
+patching_single_graphs(dsw$PS4)
+```
+\newpage
+
+## Skalenwerte
+```{r TPK1, fig.width = 8, fig.height = 5, fig.align='center'}
+ppp(dsw$TPK_mean, dsw$t, dsw$PersonID.m, "Technological Pedagogical Knowledge", 1,5) + legende1_5
+```
+## Einzelitems
+```{r TPK2, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$TPK1)
+```
+
+```{r TPK3, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$TPK2)
+patching_single_graphs(dsw$TPK3)
+patching_single_graphs(dsw$TPK4)
+```
+
+## Skalenwerte
+```{r SE1, fig.width = 8, fig.height = 5, fig.align='center'}
+ppp(dsw$SEBase_mean, dsw$t, dsw$PersonID.m, "Techn. Selbstwirksamkeit: Alltags-A.", 1,4) + legende1_4
+```
+## Einzelitems
+```{r SE2, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEBase1)
+```
+
+```{r SE3, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEBase2)
+patching_single_graphs(dsw$SEBase3)
+patching_single_graphs(dsw$SEBase4)
+```
+
+```{r SE4, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEBase5)
+patching_single_graphs(dsw$SEBase6)
+patching_single_graphs(dsw$SEBase7)
+```
+
+```{r SE5, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEBase8)
+```
+\newpage
+## Skalenwerte
+```{r SEA1, fig.width = 8, fig.height = 5, fig.align='center'}
+ppp(dsw$SEAdv_mean, dsw$t, dsw$PersonID.m, "Techn. Selbstwirksamkeit: Komplexe A.", 1,4) + legende1_4
+```
+## Einzelitems
+```{r SEA2, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEAdv1)
+```
+
+```{r SEA3, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEAdv2)
+patching_single_graphs(dsw$SEAdv3)
+patching_single_graphs(dsw$SEAdv4)
+```
+
+```{r SEA4, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEAdv5)
+patching_single_graphs(dsw$SEAdv6)
+patching_single_graphs(dsw$SEAdv7)
+```
+\newpage
+
+## Skalenwerte
+```{r SEE1, fig.width = 8, fig.height = 5, fig.align='center'}
+ppp(dsw$SEEdu_mean, dsw$t, dsw$PersonID.m, "Medienpädagogische Selbstwirksamkeit", 1,4) + legende1_4
+```
+## Einzelitems
+```{r SEE2, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEEdu1)
+```
+
+```{r SEE3, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEEdu2)
+patching_single_graphs(dsw$SEEdu3)
+patching_single_graphs(dsw$SEEdu4)
+```
+
+```{r SEE4, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEEdu5)
+patching_single_graphs(dsw$SEEdu6)
+patching_single_graphs(dsw$SEEdu7)
+```
+
+```{r SEE5, fig.width = 7, fig.height = 4, out.height = "77%", out.width= "77%", fig.align='center'}
+patching_single_graphs(dsw$SEEdu8)
+```
+
+```{r reorder vars, echo=FALSE}
+
+ds <- ds %>%
+relocate(., PersonID, PersonID.m, matched, Survey, SurveyStart, Group, MedBildung, 
+         REF, STARTED, Kohorte, t,
+Geschl, Alter.c, FachSem, StudGang,
+starts_with("MVA"),
+MINT1, MINT2, MINT0, MedBild,
+TK1:TPK4,
+starts_with("SEBase"), starts_with("SEAdv"),starts_with("SEEdu"),
+starts_with("FO_"),
+starts_with("FeB"))
+
+
+#new_order <- c("PersonID","PersonID.m","matched","Geschl","Alter", "FachSem","StudGang","MVA_aktuell", "MVA_vorher","MedBild","MedBildung","MVA_IDK_EF1","MVA_IDK_Bio", "MVA_IDK_Dt","MVA_IDK_Engl_Grammar","MVA_IDK_Engl_PicBook","MVA_IDK_Gesch_Didaktik","MVA_IDK_Gesch_Kippenheim","MVA_IDK_Mathe_Program","MVA_IDK_Mathe_Comp","MVA_IDK_Phy_Labor","MVA_IDK_Wirt_BO1","MVA_IDK_keine","MVA_IDK_andere","MVA_IDK_andere_offen","UG_MedKomp","UG_VidCon","UG_VidSchnitt","UG_Multimedia","UG_Foto","M_nichtStudium","M_nichtStudium_offen","MINT1","MINT2","MINT0","AbiNote","AbiNoteZusatz","TK1","TK2","TK3","TK4","PS1","PS2","PS3","PS4","TPK1","TPK2","TPK3","TPK4","FO_Gen_Theorie","FO_Gen_Studien","FO_Gen_Tools","FO_TPK_Vorbild","FO_TPK_SelbstGeplant","FO_TPK_SelbstEingesetzt","FO_TK_passiv","FO_TK_aktiv","FO_TK_Produkte","FO_TK_teilen","FO_Ref_Rahmen","FO_Ref_LVA","FO_Ref_Forschung","FO_Sons_Medien","FO_Sons_offen","FeB_positiv","FeB_negativ","FeB_andereInhalte","SEBase1","SEBase2","SEBase3","SEBase4","SEBase5","SEBase6","SEBase7","SEBase8","SEAdv1","SEAdv2","SEAdv3","SEAdv4","SEAdv5","SEAdv6","SEAdv7","SEEdu1","SEEdu2","SEEdu3","SEEdu4","SEEdu5","SEEdu6","SEEdu7","SEEdu8","SEEdu9","SE_z_DiglStoryt","SE_z_DigLernpfade","FeB_Quest","WdhTN","SurveyStart","REF","STARTED","TIME_SUM","DEG_TIME","MAXPAGE","Survey","Group","Group_post","Teilp","t","Kohorte","TK_mean","PS_mean","TPK_mean","SEBase_mean","SEAdv_mean","SEEdu_mean")
+
+
+
+#ds <- ds[, new_order]
+
+
+```
+  
+```{r create sub-ds, eval=FALSE}
+subsetting_ds <- function(TP){
+  sub_ds <- filter(ds, REF == TP) %>% as.data.frame() %>% 
+    select(, -starts_with(c("FeB", "Gesch", "Alte", "FachSe")) & -ends_with("offen"))
+  sub_ds
+  write_sav(sub_ds, paste("ds_files/sav/",TP,".sav", sep = "")) #hier die abstrahierten namen noch hinzufügen
+  write_rds(sub_ds, paste("ds_files/rds/",TP,".rds", sep = ""))
+  write_csv(sub_ds, paste("ds_files/csv/",TP,".csv", sep = ""))
+}
+
+for (i in unique(ds$REF)) {
+subsetting_ds(i)
+}
+```
+
+
+### Hinweis
+
+Diese Auswertung wurde automatisiert erstellt und ist im Entwicklungsstadium. Bei Auffälligkeiten, Implausibilitäten, Feedback etc. bitte Mail mit Info und Rückfragen an [sonja.hahn@ph-karlsruhe.de](mailto:sonja.hahn@ph-karlsruhe.de)

@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="svglite"
+   width="504.00pt"
+   height="288.00pt"
+   viewBox="0 0 504.00 288.00"
+   version="1.1"
+   id="svg189"
+   sodipodi:docname="pre_post.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscape:export-filename="pre_post.png"
+   inkscape:export-xdpi="139.60434"
+   inkscape:export-ydpi="139.60434"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview191"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="0.78970072"
+     inkscape:cx="291.24958"
+     inkscape:cy="177.28235"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg189" />
+  <defs
+     id="defs4">
+    <marker
+       style="overflow:visible"
+       id="TriangleStart"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="4.9916334"
+       markerHeight="5.6666179"
+       viewBox="0 0 4.9916334 5.6666178"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <rect
+       x="855.27273"
+       y="186.60496"
+       width="12.218182"
+       height="38.876033"
+       id="rect559" />
+    <rect
+       x="711.98678"
+       y="188.82645"
+       width="287.68264"
+       height="81.084297"
+       id="rect553" />
+    <rect
+       x="708.65455"
+       y="115.51736"
+       width="302.12231"
+       height="73.309091"
+       id="rect547" />
+    <rect
+       x="714.20826"
+       y="294.34711"
+       width="312.11901"
+       height="72.198345"
+       id="rect541" />
+    <rect
+       x="711.98678"
+       y="340.99835"
+       width="221.04075"
+       height="48.073101"
+       id="rect535" />
+    <rect
+       x="17.771901"
+       y="-62.201653"
+       width="81.084299"
+       height="45.540496"
+       id="rect529" />
+    <rect
+       x="-79.973554"
+       y="-105.52066"
+       width="695.32562"
+       height="34.433058"
+       id="rect519" />
+    <style
+       type="text/css"
+       id="style2"><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart-13"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="4.9916334"
+       markerHeight="5.6666179"
+       viewBox="0 0 4.9916334 5.6666178"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart-14"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="4.9916334"
+       markerHeight="5.6666179"
+       viewBox="0 0 4.9916334 5.6666178"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart-14-0"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="4.9916334"
+       markerHeight="5.6666179"
+       viewBox="0 0 4.9916334 5.6666178"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-7-1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart-14-0-4"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="4.9916334"
+       markerHeight="5.6666179"
+       viewBox="0 0 4.9916334 5.6666178"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-7-1-7" />
+    </marker>
+  </defs>
+  <rect
+     width="100%"
+     height="100%"
+     style="stroke: none; fill: none;"
+     id="rect6" />
+  <defs
+     id="defs11">
+    <clipPath
+       id="cpMC4wMHw1MDQuMDB8MC4wMHwyODguMDA=">
+      <rect
+         x="0.00"
+         y="0.00"
+         width="504.00"
+         height="288.00"
+         id="rect8" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#cpMC4wMHw1MDQuMDB8MC4wMHwyODguMDA=)"
+     id="g15"
+     transform="matrix(1.7396102,0,0,1.0660808,-111.39247,-7.5600487)">
+    <rect
+       x="0.019974202"
+       y="0.019977393"
+       width="503.96005"
+       height="309.81989"
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:1.10975"
+       id="rect13" />
+  </g>
+  <path
+     style="fill:#000000;stroke:#000000;stroke-width:1.811;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;marker-end:url(#TriangleStart-13)"
+     d="M 531.32199,50.229508 491.70728,49.535767"
+     id="path1293-3"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-width:1.811;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;marker-end:url(#TriangleStart-14)"
+     d="m 531.32199,106.07595 -39.61471,-0.69374"
+     id="path1293-1"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-width:1.811;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;marker-end:url(#TriangleStart-14-0)"
+     d="m 530.37226,237.10165 -39.61471,-0.69374"
+     id="path1293-1-6"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-width:1.811;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;marker-end:url(#TriangleStart-14-0-4)"
+     d="m 530.37225,271.97652 -39.61471,-0.69374"
+     id="path1293-1-6-1"
+     sodipodi:nodetypes="cc" />
+  <defs
+     id="defs20">
+    <clipPath
+       id="cpNS40OHwyNTUuNTR8MTguMzd8MjgyLjUy">
+      <rect
+         x="5.48"
+         y="18.37"
+         width="250.06"
+         height="264.15"
+         id="rect17" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#cpNS40OHwyNTUuNTR8MTguMzd8MjgyLjUy)"
+     id="g22" />
+  <g
+     clip-path="url(#cpMC4wMHw1MDQuMDB8MC4wMHwyODguMDA=)"
+     id="g24" />
+  <defs
+     id="defs29">
+    <clipPath
+       id="cpNTYuMjV8MjE0LjYwfDIzLjg1fDI2MS4zNw==">
+      <rect
+         x="56.25"
+         y="23.85"
+         width="158.34"
+         height="237.51"
+         id="rect26" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#cpNTYuMjV8MjE0LjYwfDIzLjg1fDI2MS4zNw==)"
+     id="g91">
+    <polyline
+       points="56.25,215.53 214.60,215.53 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline31" />
+    <polyline
+       points="56.25,173.86 214.60,173.86 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline33" />
+    <polyline
+       points="56.25,132.19 214.60,132.19 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline35" />
+    <polyline
+       points="56.25,90.52 214.60,90.52 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline37" />
+    <polyline
+       points="56.25,48.86 214.60,48.86 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline39" />
+    <line
+       x1="135.43"
+       y1="215.53"
+       x2="135.43"
+       y2="215.53"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line41" />
+    <line
+       x1="118.76"
+       y1="173.86"
+       x2="152.09"
+       y2="173.86"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line43" />
+    <line
+       x1="132.65"
+       y1="132.19"
+       x2="138.20"
+       y2="132.19"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line45" />
+    <line
+       x1="115.98"
+       y1="90.52"
+       x2="154.87"
+       y2="90.52"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line47" />
+    <line
+       x1="121.54"
+       y1="48.86"
+       x2="149.32"
+       y2="48.86"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line49" />
+    <line
+       x1="95.84"
+       y1="108.07"
+       x2="175.01"
+       y2="108.07"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line51" />
+    <line
+       x1="95.84"
+       y1="108.07"
+       x2="175.01"
+       y2="108.07"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line53" />
+    <line
+       x1="95.84"
+       y1="108.07"
+       x2="175.01"
+       y2="108.07"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line55" />
+    <line
+       x1="95.84"
+       y1="108.07"
+       x2="175.01"
+       y2="108.07"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line57" />
+    <line
+       x1="95.84"
+       y1="108.07"
+       x2="175.01"
+       y2="108.07"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line59" />
+    <text
+       x="186.23"
+       y="116.24"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text61"> SD = 1.22</text>
+    <text
+       x="186.23"
+       y="116.24"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text63"> SD = 1.22</text>
+    <text
+       x="186.23"
+       y="116.24"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text65"> SD = 1.22</text>
+    <text
+       x="186.23"
+       y="116.24"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text67"> SD = 1.22</text>
+    <text
+       x="186.23"
+       y="116.24"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text69"> SD = 1.22</text>
+    <text
+       x="135.43"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text71"> N = 19</text>
+    <text
+       x="135.43"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text73"> N = 19</text>
+    <text
+       x="135.43"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text75"> N = 19</text>
+    <text
+       x="135.43"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text77"> N = 19</text>
+    <text
+       x="135.43"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text79"> N = 19</text>
+    <text
+       x="188.21"
+       y="109.78"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text81"> M = 3.58</text>
+    <text
+       x="188.21"
+       y="109.78"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text83"> M = 3.58</text>
+    <text
+       x="188.21"
+       y="109.78"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text85"> M = 3.58</text>
+    <text
+       x="188.21"
+       y="109.78"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text87"> M = 3.58</text>
+    <text
+       x="188.21"
+       y="109.78"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text89"> M = 3.58</text>
+  </g>
+  <g
+     clip-path="url(#cpMC4wMHw1MDQuMDB8MC4wMHwyODguMDA=)"
+     id="g105">
+    <text
+       x="51.32"
+       y="218.68"
+       text-anchor="end"
+       style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;"
+       textLength="4.90px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text93">1</text>
+    <text
+       x="51.32"
+       y="177.01"
+       text-anchor="end"
+       style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;"
+       textLength="4.90px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text95">2</text>
+    <text
+       x="51.32"
+       y="135.34"
+       text-anchor="end"
+       style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;"
+       textLength="4.90px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text97">3</text>
+    <text
+       x="51.32"
+       y="93.67"
+       text-anchor="end"
+       style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;"
+       textLength="4.90px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text99">4</text>
+    <text
+       x="51.32"
+       y="52.01"
+       text-anchor="end"
+       style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;"
+       textLength="4.90px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text101">5</text>
+    <text
+       x="135.43"
+       y="274.72"
+       text-anchor="middle"
+       style="font-size: 11.00px; font-family: &quot;Arial&quot;;"
+       textLength="17.12px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text103">Prä</text>
+  </g>
+  <defs
+     id="defs110">
+    <clipPath
+       id="cpMjU1LjU0fDQ5OC41MnwxOC4zN3wyODIuNTI=">
+      <rect
+         x="255.54"
+         y="18.37"
+         width="242.98"
+         height="264.15"
+         id="rect107" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#cpMjU1LjU0fDQ5OC41MnwxOC4zN3wyODIuNTI=)"
+     id="g112" />
+  <g
+     clip-path="url(#cpMC4wMHw1MDQuMDB8MC4wMHwyODguMDA=)"
+     id="g114" />
+  <defs
+     id="defs119">
+    <clipPath
+       id="cpMjk5LjIzfDQ1Ny41N3wyMy44NXwyNjEuMzc=">
+      <rect
+         x="299.23"
+         y="23.85"
+         width="158.34"
+         height="237.51"
+         id="rect116" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#cpMjk5LjIzfDQ1Ny41N3wyMy44NXwyNjEuMzc=)"
+     id="g181">
+    <polyline
+       points="299.23,215.53 457.57,215.53 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline121" />
+    <polyline
+       points="299.23,173.86 457.57,173.86 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline123" />
+    <polyline
+       points="299.23,132.19 457.57,132.19 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline125" />
+    <polyline
+       points="299.23,90.52 457.57,90.52 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline127" />
+    <polyline
+       points="299.23,48.86 457.57,48.86 "
+       style="stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;"
+       id="polyline129" />
+    <line
+       x1="375.62"
+       y1="215.53"
+       x2="381.18"
+       y2="215.53"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line131" />
+    <line
+       x1="375.62"
+       y1="173.86"
+       x2="381.18"
+       y2="173.86"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line133" />
+    <line
+       x1="367.29"
+       y1="132.19"
+       x2="389.51"
+       y2="132.19"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line135" />
+    <line
+       x1="350.62"
+       y1="90.52"
+       x2="406.18"
+       y2="90.52"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line137" />
+    <line
+       x1="370.07"
+       y1="48.86"
+       x2="386.74"
+       y2="48.86"
+       style="stroke-width: 10.67; stroke: #0078A5; stroke-linecap: butt;"
+       id="line139" />
+    <line
+       x1="338.82"
+       y1="103.68"
+       x2="417.99"
+       y2="103.68"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line141" />
+    <line
+       x1="338.82"
+       y1="103.68"
+       x2="417.99"
+       y2="103.68"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line143" />
+    <line
+       x1="338.82"
+       y1="103.68"
+       x2="417.99"
+       y2="103.68"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line145" />
+    <line
+       x1="338.82"
+       y1="103.68"
+       x2="417.99"
+       y2="103.68"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line147" />
+    <line
+       x1="338.82"
+       y1="103.68"
+       x2="417.99"
+       y2="103.68"
+       style="stroke-width: 2.13; stroke: #FF0000; stroke-linecap: butt;"
+       id="line149" />
+    <text
+       x="429.20"
+       y="111.85"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text151"> SD = 1.00</text>
+    <text
+       x="429.20"
+       y="111.85"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text153"> SD = 1.00</text>
+    <text
+       x="429.20"
+       y="111.85"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text155"> SD = 1.00</text>
+    <text
+       x="429.20"
+       y="111.85"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text157"> SD = 1.00</text>
+    <text
+       x="429.20"
+       y="111.85"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="33.77px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text159"> SD = 1.00</text>
+    <text
+       x="378.40"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text161"> N = 19</text>
+    <text
+       x="378.40"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text163"> N = 19</text>
+    <text
+       x="378.40"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text165"> N = 19</text>
+    <text
+       x="378.40"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text167"> N = 19</text>
+    <text
+       x="378.40"
+       y="238.91"
+       text-anchor="middle"
+       style="font-size: 7.11px; font-family: &quot;Arial&quot;;"
+       textLength="23.10px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text169"> N = 19</text>
+    <text
+       x="431.18"
+       y="105.39"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text171"> M = 3.68</text>
+    <text
+       x="431.18"
+       y="105.39"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text173"> M = 3.68</text>
+    <text
+       x="431.18"
+       y="105.39"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text175"> M = 3.68</text>
+    <text
+       x="431.18"
+       y="105.39"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text177"> M = 3.68</text>
+    <text
+       x="431.18"
+       y="105.39"
+       text-anchor="middle"
+       style="font-size: 7.11px;fill: #FF0000; font-family: &quot;Arial&quot;;"
+       textLength="29.82px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text179"> M = 3.68</text>
+  </g>
+  <g
+     clip-path="url(#cpMC4wMHw1MDQuMDB8MC4wMHwyODguMDA=)"
+     id="g187">
+    <text
+       x="378.40"
+       y="274.72"
+       text-anchor="middle"
+       style="font-size: 11.00px; font-family: &quot;Arial&quot;;"
+       textLength="22.02px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text183">Post</text>
+    <text
+       x="10.96"
+       y="11.21"
+       style="font-size: 8.00px; font-family: &quot;Arial&quot;;"
+       textLength="345.00px"
+       lengthAdjust="spacingAndGlyphs"
+       id="text185">TK: Wenn sich ein Problem mit einem digitalen Medium ergibt, denke ich, dass ich es lösen kann.</text>
+  </g>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.75,0,0,0.75,-119.12727,46.65124)"
+     id="text527"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:Arial;-inkscape-font-specification:Arial;white-space:pre;shape-inside:url(#rect529);shape-padding:0;display:inline;fill:#333333"><tspan
+       x="17.771484"
+       y="-45.387059"
+       id="tspan585">Itemtext
+</tspan></text>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.75,0,0,0.75,10.829754,0.3347108)"
+     id="text533"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:Arial;-inkscape-font-specification:Arial;white-space:pre;shape-inside:url(#rect535);display:inline;fill:#333333"><tspan
+       x="711.98633"
+       y="357.81216"
+       id="tspan587">Anfang bzw. Ende des </tspan><tspan
+       x="711.98633"
+       y="381.14553"
+       id="tspan589">Semesters</tspan></text>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.75,0,0,0.75,7.4975207,8.365289)"
+     id="text539"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:Arial;-inkscape-font-specification:Arial;white-space:pre;shape-inside:url(#rect541);display:inline;fill:#333333"><tspan
+       x="714.20898"
+       y="311.16177"
+       id="tspan591">N: Anzahl der gültigen Antworten</tspan></text>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.75,0,0,0.75,12.495868,4.8322314)"
+     id="text545"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:Arial;-inkscape-font-specification:Arial;white-space:pre;shape-inside:url(#rect547);display:inline;fill:#000000"><tspan
+       x="708.6543"
+       y="132.33169"
+       id="tspan595"><tspan
+   style="fill:#ff0000"
+   id="tspan593">M: Mittelwert (rote Linie)</tspan>
+</tspan><tspan
+       x="708.6543"
+       y="155.66507"
+       id="tspan597">SD: Standardabweichung</tspan></text>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.75,0,0,0.75,10.829752,-118.46034)"
+     id="text551"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:Arial;-inkscape-font-specification:Arial;white-space:pre;shape-inside:url(#rect553);display:inline;fill:#0078a5;fill-opacity:1"><tspan
+       x="711.98633"
+       y="205.64028"
+       id="tspan599">Die Breite der Balken zeigt an,
+</tspan><tspan
+       x="711.98633"
+       y="228.97366"
+       id="tspan601">wie häufig die jeweilige </tspan><tspan
+       x="711.98633"
+       y="252.30703"
+       id="tspan603">Antwortmöglichkeit gewählt wurde</tspan></text>
+  <text
+     xml:space="preserve"
+     transform="scale(0.75)"
+     id="text557"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:Arial;-inkscape-font-specification:Arial;white-space:pre;shape-inside:url(#rect559);display:inline;fill:#000000" />
+  <path
+     style="fill:#000000;stroke-width:1.811;stroke-dasharray:none;marker-end:url(#TriangleStart)"
+     d="m -50.146993,8.4559128 39.614712,0.6937413"
+     id="path1293"
+     sodipodi:nodetypes="cc" />
+</svg>
